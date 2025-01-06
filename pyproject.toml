@@ -1,0 +1,43 @@
+[project]
+name = "placeholder"
+authors = [
+{name = "Daniel Edmiston", email = "daniel.s.edmiston@gmail.com"},
+]
+version = "0.1.0"
+description = "placeholder"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[[tool.mypy.overrides]]
+module = []
+ignore_missing_imports = true
+
+[tool.uv]
+dev-dependencies = [
+    "ruff>=0.6.2",
+    "mypy>=1.11.1",
+    "pytest>=8.3.2",
+    "sphinx>=8.0.2",
+    "pytest-asyncio>=0.24.0",
+    "pytest-mock>=3.14.0",
+    "nest-asyncio>=1.6.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/placeholder"]
+
+[tool.ruff]
+line-length = 88
+lint.select = ["F", "E", "W", "I001"]
+lint.isort.section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+lint.isort.force-sort-within-sections = false
+lint.isort.lines-after-imports = 2
+lint.isort.order-by-type = true
+lint.isort.known-first-party = ["placeholder"]
+lint.isort.split-on-trailing-comma = true
+lint.isort.default-section = "third-party"
