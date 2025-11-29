@@ -17,8 +17,8 @@ build-backend = "hatchling.build"
 module = []
 ignore_missing_imports = true
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "ruff>=0.6.2",
     "mypy>=1.11.1",
     "pytest>=8.3.2",
